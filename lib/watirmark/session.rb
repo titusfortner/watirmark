@@ -118,6 +118,7 @@ module Watirmark
     def openbrowser
       use_headless_display if config.headless
       Page.browser = new_watir_browser
+      Page.browser.timeouts.implicit_wait = config.implicit_wait if config.implicit_wait
       initialize_page_checkers
       Page.browser
     end
