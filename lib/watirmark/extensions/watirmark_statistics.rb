@@ -132,6 +132,17 @@ module Watirmark
   end
 end
 
+class Wait
+  alias_method :wait_until, :until
+
+  def until
+    start_time = ::Time.now
+    return_value = old_until
+    Watirmark::Session.instance.watirmark_statistics.count_poll_time(Time.now - start_time)
+    return_value
+  end
+end
+
 module Watir
   module Wait
 
