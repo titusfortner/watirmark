@@ -8,11 +8,9 @@ module Watirmark
 
     # Uses last window
     def with_modal_dialog &blk
-      wait_for_modal_dialog
       Page.browser.windows.last.use &blk
     end
 
-    # TODO - Depricate when implement smart_waits
     def wait_for_modal_dialog
       Watir::Wait.until { modal_exists? && Page.browser.wait}
     rescue TimeoutError
