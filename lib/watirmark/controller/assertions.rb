@@ -31,7 +31,7 @@ module Watirmark
         when Watir::TextField
           element.value
         else
-          if element.respond_to?(:value) && element.value != ''
+          if element.respond_to?(:value) && !element.value.nil?
             element.value
           else
             element.text
