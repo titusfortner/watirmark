@@ -84,7 +84,7 @@ module Watirmark
         begin
           verify_keyword_value(keyed_element)
         rescue Watirmark::VerificationException => e
-          @verification_errors.push e.to_s
+          @verification_errors.push "#{keyed_element.keyword} - #{e.message}"
         end
       end
 

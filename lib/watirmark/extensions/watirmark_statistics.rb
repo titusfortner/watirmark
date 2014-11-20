@@ -133,7 +133,7 @@ module Watirmark
 end
 
 class Wait
-  alias_method :wait_until, :until
+  alias_method :old_until, :until
 
   def until
     start_time = ::Time.now
