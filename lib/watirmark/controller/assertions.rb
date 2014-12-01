@@ -5,7 +5,8 @@ module Watirmark
 
     def assert_equal(element, expected)
       return if expected.nil?
-      
+      element.wait_until_present
+
       element.extend KeywordMethods
       if map = element.radio_map
         expected = map.lookup(expected)
