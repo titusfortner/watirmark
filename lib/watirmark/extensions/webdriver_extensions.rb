@@ -13,6 +13,7 @@ module Watir
     # running the checkers on a modal dialog that has closed
     # by the time the checkers have run
     def run_checkers
+      return unless browser.window.present?
       @error_checkers.each do |checker|
         begin
           checker.call(self)
