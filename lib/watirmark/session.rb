@@ -125,6 +125,7 @@ module Watirmark
 
     def closebrowser
       begin
+        Page.browser.windows.first.use
         Page.browser.close
       rescue Errno::ECONNREFUSED, Selenium::WebDriver::Error::WebDriverError
         # browser already closed or unavailable
