@@ -135,12 +135,11 @@ module Watir
     end
 
     alias_method :old_element_call, :element_call
-    def element_call &block
-      old_element_call &block
+
+    def element_call *args, &block
+      old_element_call *args, &block
     rescue Selenium::WebDriver::Error::UnknownError => ex
       raise unless ex.message.include?("Element is not clickable at point")
-      reset!
-      assert_exists
       retry
     end
 
